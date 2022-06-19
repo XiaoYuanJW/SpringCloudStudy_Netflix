@@ -1,0 +1,17 @@
+server:
+  port: 8101
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloudstudy_user
+    username: root
+    password: 13851176590++
+  application:
+    name: user-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://root:123456@replica1:8005/eureka,
+                   http://root:123456@replica2:8006/eureka

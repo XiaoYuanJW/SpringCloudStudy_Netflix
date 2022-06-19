@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: borrowservice #配置文件名称
+      uri: http://localhost:8601 #配置服务器地址
+      profile: dev #环境
+      label: master #分支

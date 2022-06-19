@@ -1,0 +1,25 @@
+server:
+  port: 8501
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway: # 配置路由
+      routes:
+        - id: borrow-service # 路由ID
+          uri: lb://borrow-service # 匹配后路由地址 lb表示负载均衡
+          predicates: # 断言，路径相匹配进行路由
+            - Path=/borrow/**
+        - id: book-service
+          uri: lb://book-service
+          predicates:
+            - Path=/book/**
+          filters: # 添加过滤器
+            - AddRequestHeader=test, Hello world!
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@replica1:8005/eureka,
+                   http://root:123456@replica2:8006/eureka
+
+

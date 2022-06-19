@@ -1,0 +1,17 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: eureka-security-server
+  security:
+    user:
+      name: root
+      password: 123456
+eureka:
+  instance:
+    hostname: replica1
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://root:123456@replica2:8006/eureka
